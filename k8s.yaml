@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: section6-reactjs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: section6-reactjs
+  template:
+    metadata:
+      labels:
+        app: section6-reactjs
+    spec:
+      containers:
+      - name: section6-reactjs
+        image: raymondbaoly/section6-reactjs:prod
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: section6-reactjs
+spec:
+  selector:
+    app: section6-reactjs
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
