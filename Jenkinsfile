@@ -18,7 +18,7 @@ pipeline {
         stage('SonarQube - SAST') {
             steps {
                 withSonarQubeEnv('section6') {
-                    sh 'sonar-scanner -Dsonar.projectKey=section6-nodejs -Dsonar.sources=. -Dsonar.language=ts'
+                    sh 'sonar-scanner -Dsonar.projectKey=section6-reactjs -Dsonar.sources=. -Dsonar.language=ts'
                 }
             }
         }
